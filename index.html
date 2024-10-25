@@ -496,7 +496,7 @@ h2.title-section {
                                     <div class="container__coupon-code">
                                         <div class="content__coupon-code">
                                             <div class="container__input-code">
-                                                <input type="text" placeholder="Enter coupon code">
+                                                <input type="text" placeholder="Enter coupon code" maxlength="12" onkeyup="this.value = this.value.toUpperCase();">
                                             </div>
                                             <div class="container__button">
                                                 <div class="black-button">
@@ -581,7 +581,7 @@ h2.title-section {
                                                                 Postal Code
                                                             </div>
                                                             <div class="container__input">
-                                                                <input class="customer-input-info" type="text" placeholder="00270">
+                                                                <input class="customer-input-info" type="text" placeholder="00270" maxlength="15" onkeyup="this.value = this.value.toUpperCase();">
                                                             </div>
                                                         </div>
                                                     </div>
