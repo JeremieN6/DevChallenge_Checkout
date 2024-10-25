@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+    --font-size-title:1.5rem;
+    --font-size-small-text:.75rem;
+    --font-size-body-text:1rem;
+
+    --black-color: #1D1D1F;
+    --bg-white-color: #F3F4F6;
+    --white-color: #FFFFFF;
+    --dark-grey-color: #6C727F;
+    --light-grey-color: #D2D5DA;
+
+    --bg-placeholder-color: #00000033;
+    --bg-label-color: #95AAD0;
+
+
+    --font-weight-bold: 700;
+    --font-weight-semi-bold: 600;
+    --font-weight-medium: 500;
+    --font-weight-regular: 400;
+}
+*{
+    font-family: "Inter", sans-serif;
+}
+/* body{
+    display: flex;
+    justify-content: center;
+}
+.container__page{
+    max-width: 2048px;
+} */
+.container__bg-image{
+    position: relative;
+}
+.container__header {
+    position: relative;
+}
+.bg-image {
+    height: 240px;
+    width: 100%;
+}
+.content__title {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.container__title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 150px;
+}
+.title{
+    display: flex;
+    font-size: var(--font-size-title);
+    color: var(--white-color);
+}
+.label__item{
+    background-color: var(--bg-label-color);
+    border-radius: 20px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: var(--font-size-small-text);
+    color: var(--white-color);
+    margin-left: 10px;
+    font-weight: var(--font-weight-medium);
+}
+.container__checkout {
+    margin: 0 35px;
+    box-shadow: 1px 2px 5px lightgrey;
+    border-radius: 20px;
+    position: absolute;
+    top: 45%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.content__checkout {
+    display: flex;
+    flex-direction: column;
+    /* padding: 0 20px; */
+    box-shadow: 1px 2px 5px lightgrey;
+    border-radius: 20px;
+}
+.container__articles-informations {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #E5E7EA;
+    border-radius: 20px 20px 0 0;
+}
+.container__articles{
+    width: 100%;
+}
+.content__articles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+}
+.article {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+}
+.container__image-article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content__img_article {
+    border: 1px solid var(--light-grey-color);
+    width: 75px;
+    text-align: center;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: var(--bg-white-color);
+}
+img.img-article {
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+    text-align: center;
+}
+.container__article-informations {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.content__article-name-price {
+    display: flex;
+    justify-content: space-between;
+    /* width: 100%; */
+}
+p.article-name,
+p.article-price {
+    margin-bottom: 0;
+    color: var(--black-color);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-body-text);
+}
+.article-color{
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: var(--dark-grey-color);
+    font-weight: var(--font-weight-medium);
+}
+.container__article_unit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.article-unit{
+    color: var(--dark-grey-color);
+}
+.separator{
+    /* border-bottom: 1px solid var(--light-grey-color); */
+    border: 1px solid var(--light-grey-color);
+    width: 100%;
+}
+.container__coupon-code {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.container__input-code {
+    width: 75%;
+}
+.container__button {
+    width: 25%;
+    height: 50px;
+    text-align: center;
+}
+.content__coupon-code {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px 20px;
+}
+
+input {
+    width: 95%;
+    border: 1px solid var(--light-grey-color);
+    height: 50px;
+    border-radius: 10px;
+}
+.black-button {
+    color: var(--white-color);
+    background-color: var(--black-color);
+    padding: 10px;
+    border-radius: 10px;
+    height: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+input::placeholder{
+    font-size: var(--font-size-body-text);
+    padding-left: 20px;
+}
+.container_total {
+    width: 100%;
+}
+.content__total {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+.container__sub-total,
+.container__tax,
+.container__total {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.total-label,
+.total-number{
+    color: var(--black-color);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-body-text);
+}
+.sub-total-number,
+.sub-total-label,
+.tax-label,
+.tax-number
+{
+    color: var(--dark-grey-color);
+    font-size: var(--font-size-body-text);
+    font-weight: var(--font-weight-bold);
+}
+.container__customer-informations {
+    background-color: var(--white-color);
+    border-radius: 20px;
+}
+.content__customer-informations {
+    padding: 20px;
+}
+.content__title-section {
+    margin: 0 0 30px 0;
+}
+h2.title-section {
+    font-size: var(--font-size-body-text);
+}
+.__form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.label__firstName-lastName,
+.label__email,
+.label__country,
+.label__postalCode {
+    color: var(--dark-grey-color);
+    font-size: var(--font-size-small-text);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 10px;
+}
+.customer-input-info{
+    background-color: var(--bg-white-color);
+    width: 100%;
+}
+.customer-input-info-select{
+    border: 1px solid var(--light-grey-color);
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 1em;
+    color: var(--black-color);
+    font-size: var(--font-size-body-text);
+    font-weight: var(--font-weight-bold);
+}
+
+.container__country-postalCode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+.content__country,
+.content__postalCode {
+    width: 50%;
+}
+.__form-button{
+    width: 101%;
+}
+@media (min-width: 768px){
+    .content__checkout {
+        flex-direction: row;
+        justify-content: center;
+        border-radius: 20px;
+        box-shadow: 1px 2px 5px lightgrey;
+        padding: 0;
+    }
+    .container__articles-informations,
+    .container__customer-informations{
+        width: 50%;
+    }
+    .container__articles-informations{
+        border-radius: 20px 0 0 20px;
+    }
+    .container__customer-informations {
+        border-radius: 0 20px 20px 0;
+    }
+}
+@media(min-width: 1500px){
+    .container__checkout {
+        margin: 0 700px;
+    }
+}
+</style>
+<body>
+    <div class="container__page">
+        <div class="content__page">
+            <div class="container__header">
+                <div class="content__header">
+                    <div class="container__bg-image">
+                        <div class="content__bg-image">
+                            <img src="./assets/images/background-image.png" alt="Background Image - Checkout page" class="bg-image">
+                        </div>
+                        <div class="container__title">
+                            <div class="content__title">
+                                <h1 class="title">
+                                    Checkout <span class="label__item">3 items</span>
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="container__checkout">
+                            <div class="content__checkout">
+                                <div class="container__articles-informations">
+                                    <div class="container__articles">
+                                        <div class="content__articles">
+                                            <div class="article">
+                                                <div class="container__image-article">
+                                                    <div class="content__img_article">
+                                                        <img src="./assets/images/Gold.png" alt="Iphone 12 Pro - Article Image" class="img-article">
+                                                    </div>
+                                                </div>
+                                                <div class="container__article-informations">
+                                                    <div class="content__article-informations">
+                                                        <div class="container__article-name-price">
+                                                            <div class="content__article-name-price">
+                                                                <div class="__article-name">
+                                                                    <p class="article-name">
+                                                                        iPhone 12 Pro
+                                                                    </p>
+                                                                </div>
+                                                                <div class="__article-price">
+                                                                    <p class="article-price">
+                                                                        $999.00
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="container__article-color">
+                                                            <div class="__article-color">
+                                                                <p class="article-color">Golden</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="container__article_unit">
+                                                            <div class="content__article-unit">
+                                                                <p class="article-unit">
+                                                                    x 1
+                                                                </p>
+                                                            </div>
+                                                            <div class="content__article-remove">
+                                                                <div class="arrticle-remove">
+                                                                    <img src="./assets/images/close-icon.svg" alt="Close Icon" class="remove-icon">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="article">
+                                                <div class="container__image-article">
+                                                    <div class="content__img_article">
+                                                        <img src="./assets/images/Blue.png" alt="Apple Watch - Article Image" class="img-article">
+                                                    </div>
+                                                </div>
+                                                <div class="container__article-informations">
+                                                    <div class="content__article-informations">
+                                                        <div class="container__article-name-price">
+                                                            <div class="content__article-name-price">
+                                                                <div class="__article-name">
+                                                                    <p class="article-name">
+                                                                        Apple Watch
+                                                                    </p>
+                                                                </div>
+                                                                <div class="__article-price">
+                                                                    <p class="article-price">
+                                                                        $399.00
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="container__article-color">
+                                                            <div class="__article-color">
+                                                                <p class="article-color">Blue</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="container__article_unit">
+                                                            <div class="content__article-unit">
+                                                                <p class="article-unit">
+                                                                    x 1
+                                                                </p>
+                                                            </div>
+                                                            <div class="content__article-remove">
+                                                                <div class="arrticle-remove">
+                                                                    <img src="./assets/images/close-icon.svg" alt="Close Icon" class="remove-icon">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="article">
+                                                <div class="container__image-article">
+                                                    <div class="content__img_article">
+                                                        <img src="./assets/images/iMac=Front 1.png" alt="Apple Watch - Article Image" class="img-article">
+                                                    </div>
+                                                </div>
+                                                <div class="container__article-informations">
+                                                    <div class="content__article-informations">
+                                                        <div class="container__article-name-price">
+                                                            <div class="content__article-name-price">
+                                                                <div class="__article-name">
+                                                                    <p class="article-name">
+                                                                        iMac
+                                                                    </p>
+                                                                </div>
+                                                                <div class="__article-price">
+                                                                    <p class="article-price">
+                                                                        $1199.00
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="container__article-color">
+                                                            <div class="__article-color">
+                                                                <p class="article-color">Green</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="container__article_unit">
+                                                            <div class="content__article-unit">
+                                                                <p class="article-unit">
+                                                                    x 1
+                                                                </p>
+                                                            </div>
+                                                            <div class="content__article-remove">
+                                                                <div class="arrticle-remove">
+                                                                    <img src="./assets/images/close-icon.svg" alt="Close Icon" class="remove-icon">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="separator"></div>
+                                        </div>
+                                    </div>
+                                    <div class="container__coupon-code">
+                                        <div class="content__coupon-code">
+                                            <div class="container__input-code">
+                                                <input type="text" placeholder="Enter coupon code">
+                                            </div>
+                                            <div class="container__button">
+                                                <div class="black-button">
+                                                    Apply Coupon
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container_total">
+                                        <div class="content__total">
+                                            <div class="container__sub-total">
+                                                <div class="sub-total-label">
+                                                    Sub total
+                                                </div>
+                                                <div class="sub-total-number">
+                                                    $2597.00
+                                                </div>
+                                            </div>
+                                            <div class="container__tax">
+                                                <div class="tax-label">
+                                                    Tax
+                                                </div>
+                                                <div class="tax-number">
+                                                    $623.28
+                                                </div>
+                                            </div>
+                                            <div class="container__total">
+                                                <div class="total-label">
+                                                    Total
+                                                </div>
+                                                <div class="total-number">
+                                                    $3220.28
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container__customer-informations">
+                                    <div class="content__customer-informations">
+                                        <div class="content__title-section">
+                                            <h2 class="title-section">
+                                                Contact Information
+                                            </h2>
+                                        </div>
+                                        <div class="container__form">
+                                            <div class="content__form">
+                                                <form action="POST" class="__form">
+                                                    <div class="container__firstName-lastName">
+                                                        <div class="label__firstName-lastName">
+                                                            First & Last name
+                                                        </div>
+                                                        <div class="container__input">
+                                                            <input class="customer-input-info" type="text" placeholder="Enter first & last name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="container__email">
+                                                        <div class="label__email">
+                                                            Email Address
+                                                        </div>
+                                                        <div class="container__input">
+                                                            <input class="customer-input-info" type="email" placeholder="Enter email address">
+                                                        </div>
+                                                    </div>
+                                                    <div class="container__country-postalCode">
+                                                        <div class="content__country">
+                                                            <div class="label__country">
+                                                                Country
+                                                            </div>
+                                                            <div class="container__input">
+                                                                <select name="country" id="country" class="customer-input-info customer-input-info-select">
+                                                                    <option value="Finland">Finland</option>
+                                                                    <option value="France">France</option>
+                                                                    <option value="Spain">Spain</option>
+                                                                    <option value="Germany">Germany</option>
+                                                                    <option value="England">England</option>
+                                                                    <option value="Greece">Greece</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="content__postalCode">
+                                                            <div class="label__postalCode">
+                                                                Postal Code
+                                                            </div>
+                                                            <div class="container__input">
+                                                                <input class="customer-input-info" type="text" placeholder="00270">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="container__button __form-button">
+                                                        <div class="submit black-button">
+                                                            Continue
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
