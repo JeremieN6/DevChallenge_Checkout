@@ -119,6 +119,11 @@
     flex-direction: row;
     gap: 15px;
     width: 100%;
+    transition: 200ms ease-in-out;
+}
+.article:hover{
+    transform: scale(1.05);
+    cursor: pointer;
 }
 .container__image-article{
     display: flex;
@@ -218,6 +223,10 @@ input {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: 250ms ease-in-out;
+}
+.black-button:hover{
+    transform: scale(.95);
 }
 input::placeholder{
     font-size: var(--font-size-body-text);
